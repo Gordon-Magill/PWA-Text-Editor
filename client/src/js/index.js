@@ -3,6 +3,7 @@ import Editor from './editor';
 import './database';
 import '../css/style.css';
 import navLogo from '../images/icon_96x96.png'
+import faviconLink from '../../favicon.ico'
 
 const main = document.querySelector('#main');
 main.innerHTML = '';
@@ -18,10 +19,13 @@ const loadSpinner = () => {
   main.appendChild(spinner);
 };
 
+// Adding icon for navbar
 const navIcon = document.querySelector('#navIcon')
-
-console.log('navLogo:', navLogo)
 navIcon.src= navLogo;
+
+// Adding favicon
+const favicon = document.querySelector("#favicon")
+favicon.href = faviconLink
 
 const editor = new Editor();
 
