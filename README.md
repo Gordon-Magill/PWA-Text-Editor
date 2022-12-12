@@ -19,9 +19,7 @@ A simple PWA (Progressive Web Application) demo that utilizes service workers an
 
 ## Installation
 
-Run ```npm run install``` in the home directory of the repo.
-
-## Usage
+Run ```npm i``` and then ```npm run install``` in the home directory of the repo.
 
 Run ```npm run start``` in the home directory of the repo.
 
