@@ -2,6 +2,7 @@ import { Workbox } from 'workbox-window';
 import Editor from './editor';
 import './database';
 import '../css/style.css';
+import navLogo from '../images/icon_96x96.png'
 
 const main = document.querySelector('#main');
 main.innerHTML = '';
@@ -16,6 +17,11 @@ const loadSpinner = () => {
   `;
   main.appendChild(spinner);
 };
+
+const navIcon = document.querySelector('#navIcon')
+
+console.log('navLogo:', navLogo)
+navIcon.src= navLogo;
 
 const editor = new Editor();
 
