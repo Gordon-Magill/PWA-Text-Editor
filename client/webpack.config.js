@@ -27,8 +27,8 @@ module.exports = () => {
       }),
       new MiniCssExtractPlugin(),
       new InjectManifest({
-        swSrc:'./src/sw.js',
-        swDest:'service-worker.js'
+        swSrc:'./src/src-sw.js',
+        swDest:'./service-worker_GM.js'
       }),
       new WebpackPwaManifest({
         name:"Just another text editor v90001",
@@ -37,7 +37,7 @@ module.exports = () => {
         background_color: '#ffffff',
         crossorigin: null,
         start_url:'./',
-        publicPath:'./dist/',
+        publicPath:'./',
         icons:[
           {
             src:path.resolve('src/images/logo.png'),
