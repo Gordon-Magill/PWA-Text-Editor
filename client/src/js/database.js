@@ -14,11 +14,14 @@ const initdb = async () =>
 
 // TODO: Add logic to a method that accepts some content and adds it to the database
 export const putDb = async (content) => {
-  // console.error('putDb not implemented')
+  // Open the database
   const jateDB = await openDB('jate_DB',1)
+  // Create a new transaction with the 'table'
   const putTx = jateDB.transaction('jate_table','readwrite')
+  // Define an objectStore pointing towards the table
   const jate_table = putTx.objectStore('jate_table')
-  const table_update = jate_table.put({content})
+  // Modify the 
+  const table_update = jate_table.put({id:1, content})
   const result = await table_update
   console.log('Content updated in db: ', result)
 };

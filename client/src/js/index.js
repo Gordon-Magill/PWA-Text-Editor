@@ -8,6 +8,7 @@ import faviconLink from "../../favicon.ico";
 const main = document.querySelector("#main");
 main.innerHTML = "";
 
+// Fun spinner element for if things go wrong
 const loadSpinner = () => {
   const spinner = document.createElement("div");
   spinner.classList.add("spinner");
@@ -28,8 +29,10 @@ const favicon = document.querySelector("#favicon");
 console.log(favicon)
 favicon.href = faviconLink;
 
+// Adding codemirror editor
 const editor = new Editor();
 
+// Add a spinner if the editor is having issues
 if (typeof editor === "undefined") {
   loadSpinner();
 }

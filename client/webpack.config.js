@@ -21,11 +21,14 @@ module.exports = () => {
     },
 
     plugins: [
+      // HTML generation
       new HtmlWebpackPlugin({
         template: "./index.html",
         title: "Webpack Plugin",
       }),
+      // CSS injection
       new MiniCssExtractPlugin(),
+      // Manifest generation and icon resizing
       new WebpackPwaManifest({
         name:"Just another text editor v90001",
         short_name:"JATEv9001",
@@ -41,6 +44,7 @@ module.exports = () => {
           }
         ]
       }),
+      // Inject manifest + generate service worker from template
       new InjectManifest({
         swSrc:'./src/src-sw.js',
         swDest:'./service-worker_GM.js',
@@ -51,16 +55,19 @@ module.exports = () => {
     module: {
       rules: [
         {
+          // Load CSS with plugin
           test: /\.css$/i,
           use: [MiniCssExtractPlugin.loader, "css-loader"],
         },
 
         {
+          // Designate images as assets
           test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
           type: "asset/resource",
         },
 
         {
+          // Transpile JS using babel
           test: /\.m?js$/,
           exclude: /(node_modules|bower_components)/,
           use: {
