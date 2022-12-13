@@ -26,10 +26,6 @@ module.exports = () => {
         title: "Webpack Plugin",
       }),
       new MiniCssExtractPlugin(),
-      new InjectManifest({
-        swSrc:'./src/src-sw.js',
-        swDest:'./service-worker_GM.js'
-      }),
       new WebpackPwaManifest({
         name:"Just another text editor v90001",
         short_name:"JATEv9001",
@@ -41,10 +37,15 @@ module.exports = () => {
         icons:[
           {
             src:path.resolve('./src/images/logo.png'),
-            sizes:[96,128,192,256,384,512]
+            sizes:[96,128,192,256,384,512],
           }
         ]
-      })
+      }),
+      new InjectManifest({
+        swSrc:'./src/src-sw.js',
+        swDest:'./service-worker_GM.js',
+        include: [/\.(?:png|jpg|jpeg|gif|bmp|webp|svg)$/i],
+      }),
     ],
 
     module: {
@@ -57,13 +58,6 @@ module.exports = () => {
         {
           test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
           type: "asset/resource",
-          // use: [{
-          //   loader: 'file-loader',
-          //   options: {
-          //     name:'[name].[ext]',
-          //     outputPath:'assets/images/'
-          //   }
-          // }]
         },
 
         {
