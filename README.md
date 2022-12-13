@@ -4,6 +4,8 @@
 
 ![Screenshot of app](./assets/JATE.png)
 
+[Link to deployed app](https://glacial-wave-31818.herokuapp.com/)
+
 ## Description
 
 A simple PWA (Progressive Web Application) demo that utilizes service workers and the idb indexed database wrapper. JATE (just another text editor) doesn't do anything particularly special, but  it does neatly showcase the offline functionallity brought by  service workers!
